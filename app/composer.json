@@ -1,0 +1,17 @@
+{
+    "name": "user/app",
+    "autoload": {
+        "psr-4": {
+            "User\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dikuuy",
+            "email": "andika0febriansyah@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.9"
+    }
+}
