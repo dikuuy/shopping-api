@@ -28,7 +28,6 @@ function validatePassword($password){
     if(!$password) return 'Password required!';
     if(strlen($password) < 8) return 'Minimal Panjang password 8 karakter';
 }
-
 require_once('models/User_model.php');
 require_once('core/App.php');
 require_once('core/Constants.php');

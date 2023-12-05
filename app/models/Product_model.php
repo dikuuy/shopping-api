@@ -18,20 +18,23 @@ class Product_model extends Product{
         return $this->db->single();
     }
 
-    public function addProduct($title, $info, $img, $price, $sold){
-        $this->db->query("INSERT INTO $this->table VALUES ('', :title, :info, :img, :price, :sold)");
+    public function addProduct($codeProduct, $title, $info, $stock, $img, $price, $sold){
+        $this->db->query("INSERT INTO $this->table VALUES ('', :code_product, :title, :info, :stock, :img, :price, :sold)");
+        $this->db->bind('code_product', $codeProduct);
         $this->db->bind('title', $title);
         $this->db->bind('info', $info);
+        $this->db->bind('stock', $stock);
         $this->db->bind('img', $img);
         $this->db->bind('price', $price);
         $this->db->bind('sold', $sold);
         $this->db->execute();
     }
 
-    public function updateProductById($id, $title, $info, $img, $price, $sold){
-        $this->db->query("UPDATE products SET title=:title, info=:info, img=:img, price=:price, sold=:sold WHERE id=:id");
+    public function updateProductById($id, $title, $info, $stock, $img, $price, $sold){
+        $this->db->query("UPDATE products SET title=:title, info=:info, stock=:stock, img=:img, price=:price, sold=:sold WHERE id=:id");
         $this->db->bind('title', $title);
         $this->db->bind('info', $info);
+        $this->db->bind('stock', $stock);
         $this->db->bind('img', $img);
         $this->db->bind('price', $price);
         $this->db->bind('sold', $sold);
